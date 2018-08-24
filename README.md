@@ -32,3 +32,4 @@ Use camelCase variables and function names.
 Do not use "I" as a prefix for interface names.
 Do not use "_" as a prefix for private properties.
 Use whole words in names when possible.
+
