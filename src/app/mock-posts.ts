@@ -8,7 +8,7 @@ export const POSTS: Post[] = [
     address: "123 Rd Burwood",
     price: 100,
     description:
-      "thidid Hey, my name's Deb and I have a lovely apt in South Yarra. Working full time,  sfgsjfgghshghr shfjhshg s",
+      "Hey, my name's Deb and I have a lovely apt in South Yarra. Working full time",
     contact: "0449123123"
   },
   {
@@ -19,7 +19,7 @@ export const POSTS: Post[] = [
     address: "12 Rd Burwood",
     price: 200,
     description:
-      "the week but love filling my weekends with lots of nice  thidid sfgsjfgghshghr shfjhshg s",
+      "the week but love filling my weekends with lots of nice people",
     contact: "0418767120"
   },
   {
@@ -30,7 +30,7 @@ export const POSTS: Post[] = [
     address: "123 Rd Burwood",
     price: 100,
     description:
-      "t I'm a good housemate: considerate, quiet, tidy and mindful of spac hidid sfgsjfgghshghr shfjhshg s",
+      "I'm a good housemate: considerate, quiet, tidy and mindful of space",
     contact: "047117230"
   },
   {
@@ -41,7 +41,7 @@ export const POSTS: Post[] = [
     address: "123 Rd Burwood",
     price: 250,
     description:
-      " to share my home with. Would like to  thidid sfgsjfgghshghr shfjhshg s",
+      "I like to share my home with you.",
     contact: "042338133"
   },
   {
@@ -52,7 +52,7 @@ export const POSTS: Post[] = [
     address: "123 Rd Burwood",
     price: 210,
     description:
-      " Love music, the outdoors, fitness & yoga and people! I'm positive a thidid sfgsjfgghshghr shfjhshg s",
+      " Love music, the outdoors, fitness & yoga and people! I'm a positive person",
     contact: "0459911288"
   }
 ];
