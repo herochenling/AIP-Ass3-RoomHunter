@@ -9,11 +9,11 @@ import { PostRoomComponent } from "./post-room/post-room.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "/posts", pathMatch: "full" },
-  { path: "detail/:id", component: PostDetailComponent },
+  { path: "posts/:id", component: PostDetailComponent },
   { path: "posts", component: PostsComponent },
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterComponent },
-  { path: "postroom", component: PostRoomComponent }
+  { path: "posts/add", component: PostRoomComponent }
 ];
 
 @NgModule({
