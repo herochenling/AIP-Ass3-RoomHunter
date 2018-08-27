@@ -5,7 +5,7 @@ import { PostDetailComponent } from "./post-detail/post-detail.component";
 import { PostsComponent } from "./posts/posts.component";
 import { LoginComponent } from "./login/login.component";
 import { RegisterComponent } from "./register/register.component";
-import { PostRoomComponent } from "./create-post/create-post.component";
+import { CreatePostComponent } from "./create-post/create-post.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "/posts", pathMatch: "full" },
