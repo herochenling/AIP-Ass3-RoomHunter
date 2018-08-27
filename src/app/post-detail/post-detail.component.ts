@@ -14,8 +14,9 @@ export class PostDetailComponent implements OnInit {
   post: Post;
   constructor(private route: ActivatedRoute, private location: Location) {}
 
+  /**Get the post by room-id from URL */
   getPost(): void {
-    const id = +this.route.snapshot.paramMap.get("id");
+    const id = +this.route.snapshot.paramMap.get("id")
     this.post = POSTS.find(post => post.id === id);
   }
 
@@ -23,6 +24,7 @@ export class PostDetailComponent implements OnInit {
     this.getPost();
   }
 
+  /**Back to pervious page */
   goBack(): void {
     this.location.back();
   }
