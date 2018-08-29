@@ -1,6 +1,5 @@
-<h2>Rooms for rent</h2>
-<app-filter></app-filter>
 <label>Search:
+  <input>
   <input type="button" value="search">
 </label>
 <br>
@@ -18,11 +17,3 @@
   <input type="checkbox"> $300 - $400&nbsp;
   <input type="checkbox"> &gt; 400
 </label>
-
-<ul class="posts">
-  <li *ngFor="let post of posts">
-    <a routerLink="/posts/{{post._id}}">
-      <span>{{post.title}}</span> <br>{{post.rent}}$ / Week
-    </a>
-  </li>
-</ul>

@@ -11,6 +11,7 @@ import { RegisterComponent } from "./register/register.component";
 import { PostRoomComponent } from "./post-room/post-room.component";
 
 import { PostService } from "./post.service";
+import { FilterComponent } from './filter/filter.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { PostService } from "./post.service";
     PostDetailComponent,
     LoginComponent,
     RegisterComponent,
-    PostRoomComponent
+    PostRoomComponent,
+    FilterComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [PostService],
