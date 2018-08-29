@@ -10,12 +10,14 @@ const router = express.Router();
 app.use(cors());
 app.use(bodyParser.json());
 
+// database configuration
 mongoose.connect("mongodb://127.0.0.1:27017/roomhunter");
 const connection = mongoose.connection;
-connection.once("open", () => {
+connection.once("open", () => { // check if database is connected
   console.log("MongoDB database connection established successfully");
 });
 
+// route for getting all the posts
 router.route("/posts").get((req, res) => {
   Post.find((err, posts) => {
     if (err) console.log(err);
@@ -23,6 +25,7 @@ router.route("/posts").get((req, res) => {
   });
 });
 
+//route for get a post by its id
 router.route("/posts/:id").get((req, res) => {
   Post.findById(req.params.id, (err, post) => {
     if (err) console.log(err);
@@ -30,6 +33,7 @@ router.route("/posts/:id").get((req, res) => {
   });
 });
 
+// route for add a new post
 router.route("/posts/add").post((req, res) => {
   let post = new Post(req.body);
   post
@@ -42,6 +46,7 @@ router.route("/posts/add").post((req, res) => {
     });
 });
 
+// route for delete a post
 router.route("/posts/delete/:id").get((req, res) => {
   Post.findByIdAndRemove({ _id: req.params.id }, (err, post) => {
     if (err) res.json(err);
@@ -51,4 +56,5 @@ router.route("/posts/delete/:id").get((req, res) => {
 
 app.use("/", router);
 
+// check if server is running
 app.listen(4000, () => console.log("Express server running on port 4000..."));
