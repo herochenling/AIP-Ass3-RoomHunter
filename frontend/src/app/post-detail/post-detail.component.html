@@ -1,10 +1,11 @@
+<!-- Show the details of selected post  -->
 <div *ngIf="post">
-  <h1>{{post.area | uppercase}} </h1>
-  <h2>Post by: {{post.username}}</h2>
+  <h1>{{post.title | uppercase}} </h1>
+  <h2>Post by: {{post.byUser}} {{post.postDate | date:'MM/dd/yyyy, h:mm a'}}</h2>
   <h4>Room type: {{post.roomType}}</h4>
-  <h4>Price: ${{post.price}} / week</h4>
-  <h4>Address: {{post.address}}</h4>
-  <h4>Contact: {{post.contact}}</h4>
+  <h4>Rent: ${{post.rent}} / week</h4>
+  <h4>Address: {{post.street}} {{post.suburb}} {{post.city}} {{post.state}} {{post.postCode}}</h4>
+  <h4>Contact: {{post.contactName}} {{post.phone}}</h4>
   <br>
   <p>Description: </p>
   <p>{{post.description}}</p>

@@ -22,11 +22,8 @@
 
 <ul class="posts">
   <li *ngFor="let post of posts">
-    <a routerLink="/detail/{{post.id}}">
-      <span>{{post.area}}</span>
-      <br> {{post.price}}$ / Week
-      <br> {{post.description}}
-      <br>
+    <a routerLink="/posts/{{post._id}}">
+      <span>{{post.title}}</span> <br>{{post.rent}}$ / Week
     </a>
   </li>
 </ul>
