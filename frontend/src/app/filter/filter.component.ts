@@ -5,6 +5,8 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './filter.component.html',
   styleUrls: ['./filter.component.css']
 })
+
+/** The class responsible for filtering posts based on users' selection  */
 export class FilterComponent implements OnInit {
 
   constructor() { }

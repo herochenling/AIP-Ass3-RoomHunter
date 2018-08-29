@@ -8,6 +8,7 @@ import { PostService } from "../post.service";
   styleUrls: ["./posts.component.css"]
 })
 
+/** This class is responsible for retrieve and list all the posts  */
 export class PostsComponent implements OnInit {
   posts: Post[];
   constructor(private postService: PostService) { }
@@ -16,6 +17,7 @@ export class PostsComponent implements OnInit {
     this.fetchPosts();
   }
 
+  // get all the posts from server by uisng post service
   fetchPosts() {
     this.postService.getPosts().subscribe((data: Post[]) => {
       this.posts = data;

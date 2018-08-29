@@ -4,6 +4,8 @@ import { HttpClient } from "@angular/common/http";
 @Injectable({
   providedIn: "root"
 })
+
+/** Service for getting posts from the server */
 export class PostService {
 
   //base url of the server
@@ -21,7 +23,6 @@ export class PostService {
 
   createPost(title, street, suburb, city, state, postCode, roomType, contactName,
     phone, rent, byUser, postDate, description) {
-
     const post = {
       title: title,
       street: street,

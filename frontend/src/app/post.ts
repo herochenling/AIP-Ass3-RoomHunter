@@ -1,3 +1,4 @@
+/** Post class */
 export class Post {
   id: String;
   title: String;
