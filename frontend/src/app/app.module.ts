@@ -3,15 +3,15 @@ import { NgModule } from "@angular/core";
 import { HttpClientModule } from "@angular/common/http";
 
 import { AppComponent } from "./app.component";
-import { PostsComponent } from "./posts/posts.component";
-import { PostDetailComponent } from "./post-detail/post-detail.component";
+import { PostsComponent } from "./components/posts/posts.component";
+import { PostDetailComponent } from "./components/post-detail/post-detail.component";
 import { AppRoutingModule } from ".//app-routing.module";
-import { LoginComponent } from "./login/login.component";
-import { RegisterComponent } from "./register/register.component";
-import { CreatePostComponent } from "./create-post/create-post.component";
+import { LoginComponent } from "./components/login/login.component";
+import { RegisterComponent } from "./components/register/register.component";
+import { CreatePostComponent } from "./components/create-post/create-post.component";
 
 import { PostService } from "./post.service";
-import { FilterComponent } from './filter/filter.component';
+import { FilterComponent } from './components/filter/filter.component';
 
 @NgModule({
   declarations: [
