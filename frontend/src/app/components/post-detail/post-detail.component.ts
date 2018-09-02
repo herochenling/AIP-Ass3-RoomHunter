@@ -3,7 +3,7 @@ import { ActivatedRoute } from "@angular/router";
 import { Location } from "@angular/common";
 
 import { Post } from "../../post";
-import { PostService } from "../../post.service";
+import { PostService } from "../../services/post.service";
 
 @Component({
   selector: "app-post-detail",

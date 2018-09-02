@@ -10,7 +10,7 @@ import { LoginComponent } from "./components/login/login.component";
 import { RegisterComponent } from "./components/register/register.component";
 import { CreatePostComponent } from "./components/create-post/create-post.component";
 
-import { PostService } from "./post.service";
+import { PostService } from "./services/post.service";
 import { FilterComponent } from './components/filter/filter.component';
 
 @NgModule({
