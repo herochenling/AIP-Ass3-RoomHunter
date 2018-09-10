@@ -1,19 +1,52 @@
-<label>Search:
-  <input>
-  <input type="button" value="search">
-</label>
-<br>
-<label>Area:
-  <input type="checkbox" value="sydney"> Sydney &nbsp;
-  <input type="checkbox"> Melbourne&nbsp;
-  <input type="checkbox"> Brisbane&nbsp;
-  <input type="checkbox"> Gold Coast&nbsp;
-</label>
-<br>
-<label>Price:
-  <input type="checkbox"> &lt; $100&nbsp;
-  <input type="checkbox"> $100 - $200&nbsp;
-  <input type="checkbox"> $200 - $300&nbsp;
-  <input type="checkbox"> $300 - $400&nbsp;
-  <input type="checkbox"> &gt; 400
-</label>
+<form class="form-inline my-2 my-lg-0 p-2">
+  <input class="form-control mr-sm-2" type="text" placeholder="Search">
+  <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
+</form>
+
+<div class="d-flex justify-content-start p-1 ">
+  <div>
+    <label>Area:&nbsp;&nbsp;&nbsp;</label>
+  </div>
+  <div class="custom-control custom-checkbox ">
+    <input type="checkbox" class="custom-control-input" id="sydney">
+    <label class="custom-control-label" for="sydney">Sydney&nbsp;&nbsp;&nbsp;</label>
+  </div>
+  <div class="custom-control custom-checkbox ">
+    <input type="checkbox" class="custom-control-input" id="melbourne">
+    <label class="custom-control-label" for="melbourne">Melbourne&nbsp;&nbsp;&nbsp;</label>
+  </div>
+  <div class="custom-control custom-checkbox ">
+    <input type="checkbox" class="custom-control-input" id="brisbane">
+    <label class="custom-control-label" for="brisbane">Brisbane&nbsp;&nbsp;&nbsp;</label>
+  </div>
+  <div class="custom-control custom-checkbox ">
+    <input type="checkbox" class="custom-control-input" id="goldCoast">
+    <label class="custom-control-label" for="goldCoast">Gold Coast&nbsp;&nbsp;&nbsp;</label>
+  </div>
+</div>
+
+<div class="d-flex justify-content-start p-1 ">
+  <div>
+    <label>Price:&nbsp;&nbsp;&nbsp;</label>
+  </div>
+  <div class="custom-control custom-checkbox ">
+    <input type="checkbox" class="custom-control-input" id="less100">
+    <label class="custom-control-label" for="less100">&lt; $100&nbsp;&nbsp;&nbsp;</label>
+  </div>
+  <div class="custom-control custom-checkbox ">
+    <input type="checkbox" class="custom-control-input" id="price-100-200">
+    <label class="custom-control-label" for="price-100-200">$100 - $200&nbsp;&nbsp;&nbsp;</label>
+  </div>
+  <div class="custom-control custom-checkbox ">
+    <input type="checkbox" class="custom-control-input" id="price-200-300">
+    <label class="custom-control-label" for="price-200-300">$200 - $300&nbsp;&nbsp;&nbsp;</label>
+  </div>
+  <div class="custom-control custom-checkbox ">
+    <input type="checkbox" class="custom-control-input" id="price-300-400">
+    <label class="custom-control-label" for="price-300-400">$300 - $400&nbsp;&nbsp;&nbsp;</label>
+  </div>
+  <div class="custom-control custom-checkbox ">
+    <input type="checkbox" class="custom-control-input" id="greater400">
+    <label class="custom-control-label" for="greater400">&gt; 400&nbsp;&nbsp;&nbsp;</label>
+  </div>
+</div>

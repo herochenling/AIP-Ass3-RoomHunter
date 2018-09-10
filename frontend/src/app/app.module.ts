@@ -1,5 +1,6 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
+import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 
 import { AppComponent } from "./app.component";
@@ -12,6 +13,8 @@ import { CreatePostComponent } from "./components/create-post/create-post.compon
 
 import { PostService } from "./services/post.service";
 import { FilterComponent } from './components/filter/filter.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -21,9 +24,11 @@ import { FilterComponent } from './components/filter/filter.component';
     LoginComponent,
     RegisterComponent,
     CreatePostComponent,
-    FilterComponent
+    FilterComponent,
+    NavbarComponent,
+    ProfileComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [PostService],
   bootstrap: [AppComponent]
 })
