@@ -8,7 +8,7 @@ const userRouter = express.Router();
 
 // register
 userRouter.post('/register', (req, res, next) => {
-    // create a new user from form request
+    // create a new user by using data form the request body
     let newUser = new User({
         email: req.body.email,
         username: req.body.username,

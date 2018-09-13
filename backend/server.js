@@ -19,7 +19,7 @@ app.use(passport.session());
 readToken(passport);
 
 // database configuration
-mongoose.connect(config.database);
+mongoose.connect(config.database, { useNewUrlParser: true });
 const connection = mongoose.connection;
 connection.once("open", () => { // check if database is connected
   console.log("MongoDB database connection established successfully");

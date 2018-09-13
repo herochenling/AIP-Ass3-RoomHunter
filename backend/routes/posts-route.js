@@ -26,10 +26,10 @@ postRouter.route("/posts/add").post((req, res) => {
     post
         .save()
         .then(post => {
-            res.status(200).json({ post: "Added successfully!" });
+            res.json({ post: "Added successfully!" });
         })
         .catch(err => {
-            res.status(400).send("Failed to create new post");
+            res.send("Failed to create new post");
         });
 });
 
