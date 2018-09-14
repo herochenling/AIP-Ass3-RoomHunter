@@ -20,7 +20,9 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { PostService } from "./services/post.service";
 import { ValidateService } from "./services/validate.service";
 import { AuthService } from "./services/auth.service";
+import { FlashMessageService } from "./services/flash-message.service";
 
+import { AuthGuard } from "./guard/auth.guard";
 
 @NgModule({
   declarations: [
@@ -35,7 +37,7 @@ import { AuthService } from "./services/auth.service";
     ProfileComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, NgFlashMessagesModule.forRoot(), HttpModule],
-  providers: [PostService, ValidateService, AuthService],
+  providers: [PostService, ValidateService, AuthService, FlashMessageService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

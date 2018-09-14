@@ -15,11 +15,31 @@ userRouter.post('/register', (req, res, next) => {
         password: req.body.password
     });
 
-    User.addUser(newUser, (err, user) => {
+    // make sure input fields are not empty
+    if (newUser.email == undefined || newUser.password == undefined || newUser.username == undefined) {
+        return res.json({ success: false, msg: 'Please fill in all fields!' });
+    }
+    // validate email
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (!re.test(String(newUser.email).toLowerCase())) {
+        return res.json({ success: false, msg: 'Please enter a valid email! ' });
+    }
+
+    // check if username already in the database. If not exists, add this new user to the database
+    User.getUserByUsername(newUser.username, (err, user) => {
         if (err) {
-            res.json({ success: false, msg: 'Failed to register user' });
+            return res.json({ success: false, msg: err });
+        }
+        if (user) {
+            return res.json({ success: false, msg: 'Username is already taken! Please try again! ' });
         } else {
-            res.json({ success: true, msg: 'User registered' });
+            User.addUser(newUser, (err, user) => {
+                if (err) {
+                    return res.json({ success: false, msg: 'Failed to register user, please try again!' });
+                } else {
+                    return res.json({ success: true, msg: 'Register successfully! We will direct you to Login page now' });
+                }
+            });
         }
     });
 });
@@ -29,9 +49,15 @@ userRouter.post('/authenticate', (req, res, next) => {
     const username = req.body.username;
     const password = req.body.password;
 
+    //check if input is empty
+    if (username == undefined) return res.json({ success: false, msg: "Username can't be empty!" });
+    if (password == undefined) return res.json({ success: false, msg: "Password can't be empty!" });
+
     //get user by username
     User.getUserByUsername(username, (err, user) => {
-        if (err) throw err;
+        if (err) {
+            return res.json({ success: false, msg: err });
+        }
         if (!user) {
             return res.json({ success: false, msg: 'User not found' });
         }
@@ -46,6 +72,7 @@ userRouter.post('/authenticate', (req, res, next) => {
                 // send response in jason format
                 res.json({
                     success: true,
+                    msg: 'You are now logged in !!',
                     token: 'JWT ' + token,
                     user: {
                         id: user._id,

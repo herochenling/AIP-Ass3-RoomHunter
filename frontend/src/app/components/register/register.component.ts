@@ -1,8 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ValidateService } from "../../services/validate.service";
 import { AuthService } from "../../services/auth.service";
 import { Router } from "@angular/router";
-import { NgFlashMessageService } from 'ng-flash-messages';
+import { FlashMessageService } from "../../services/flash-message.service";
 
 
 @Component({
@@ -15,17 +14,14 @@ export class RegisterComponent implements OnInit {
   @Input() email: String;
   @Input() password: String;
   msgType: String;
-  message: String;
   failed: Boolean = true;
 
   constructor(
-    private validateService: ValidateService,
     private authService: AuthService,
-    private ngFlashMessageService: NgFlashMessageService,
+    private flashMessageService: FlashMessageService,
     private router: Router) { }
 
   /**
-   * Validate input by using validate service;
    * Register a user and add it to database by using auth service.
    */
   onRegisterSubmit() {
@@ -36,49 +32,16 @@ export class RegisterComponent implements OnInit {
       password: this.password
     }
 
-    // check requrired input fields
-    if (!this.validateService.validateRegister(user)) {
-      this.message = "Please fill in all fields!";
-      this.showMessage(this.message, false);
-      return false;
-    }
-
-    // validate email
-    if (!this.validateService.validateEmail(user.email)) {
-      this.message = "Please enter an valid email!";
-      this.showMessage(this.message, false);
-      return false;
-    }
-
     //register user
     this.authService.registerUser(user).subscribe(data => {
-      if (data.success) {
-        this.message = "You are registered and you can login now!";
-        this.showMessage(this.message, true);
+      if ((data as any).success) {
+        this.flashMessageService.showMessage((data as any).msg, true);
         this.failed = false;
         setTimeout(() => { this.router.navigate(['/login']); }, 3000);
       } else {
-        this.message = "Somethng went wrong!";
-        this.showMessage(this.message, false);
+        this.flashMessageService.showMessage((data as any).msg, false);
         this.router.navigate(['/register']);
       }
-    });
-  }
-
-  /** 
-   * Flush message shows error or sucess message
-   */
-  showMessage(msg, isSuccess) {
-    if (isSuccess) {
-      this.msgType = "success";
-    } else {
-      this.msgType = "danger";
-    }
-    this.ngFlashMessageService.showFlashMessage({
-      messages: [msg],
-      dismissible: true,
-      timeout: 5000, //5 sec
-      type: this.msgType.toString()
     });
   }
 

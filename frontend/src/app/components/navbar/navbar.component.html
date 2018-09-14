@@ -14,16 +14,23 @@
 
     <ul class="nav navbar-nav nav-right">
       <li class="nav-item">
-        <a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" [routerLink]="['/login']">Login
+        <a *ngIf="!authService.isLoggedIn()" class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"
+          [routerLink]="['/login']">Login
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" [routerLink]="['/register']">Register</a>
+        <a *ngIf="!authService.isLoggedIn()" class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"
+          [routerLink]="['/register']">Register</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" [routerLink]="['/profile']">Profile</a>
+        <a *ngIf="authService.isLoggedIn()" class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"
+          [routerLink]="['/profile']">Profile</a>
+      </li>
+      <li class="nav-item">
+        <a *ngIf="authService.isLoggedIn()" class="nav-link" href="#" (click)="onLogoutClick()">Logout</a>
       </li>
     </ul>
 
   </div>
 </nav>
+<ng-flash-message></ng-flash-message>
