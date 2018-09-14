@@ -1,11 +1,14 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 
-import { PostDetailComponent } from "./post-detail/post-detail.component";
-import { PostsComponent } from "./posts/posts.component";
-import { LoginComponent } from "./login/login.component";
-import { RegisterComponent } from "./register/register.component";
-import { CreatePostComponent } from "./create-post/create-post.component";
+import { AuthGuard } from "./guard/auth.guard";
+
+import { PostDetailComponent } from "./components/post-detail/post-detail.component";
+import { PostsComponent } from "./components/posts/posts.component";
+import { LoginComponent } from "./components/login/login.component";
+import { RegisterComponent } from "./components/register/register.component";
+import { CreatePostComponent } from "./components/create-post/create-post.component";
+import { ProfileComponent } from "./components/profile/profile.component"
 
 const routes: Routes = [
   { path: "", redirectTo: "/posts", pathMatch: "full" },
@@ -13,7 +16,9 @@ const routes: Routes = [
   { path: "posts", component: PostsComponent },
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterComponent },
-  { path: "posts/add", component: CreatePostComponent }
+  { path: "add", component: CreatePostComponent },
+  { path: "profile", component: ProfileComponent, canActivate: [AuthGuard] },
+  { path: '**', redirectTo: '/posts', pathMatch: "full" }
 ];
 
 @NgModule({

@@ -1,6 +1,6 @@
-/** post model  */
 import mongoose from "mongoose";
 
+// post scheme
 const Schema = mongoose.Schema;
 let Post = new Schema({
   title: String,

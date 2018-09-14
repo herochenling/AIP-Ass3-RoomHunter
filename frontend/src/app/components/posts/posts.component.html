@@ -1,0 +1,15 @@
+<h2 class="page-hearder text-primary">Rooms for rent</h2>
+
+<div>
+  <app-filter></app-filter>
+</div>
+
+<div class="list-group-flush">
+  <div *ngFor="let post of posts">
+    <a routerLink="/posts/{{post._id}}" class="list-group-item list-group-item-action">
+      <span>{{post.title}}</span>
+      <span class="badge badge-primary">{{post.rent}}$ / Week</span>
+    </a>
+  </div>
+
+</div>
