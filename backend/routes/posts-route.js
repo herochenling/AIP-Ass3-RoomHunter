@@ -39,7 +39,12 @@ postRouter.route("/posts/add").post((req, res) => {
         postDate: req.body.postDate,
         description: req.body.description
     });
+    const resultMsg = postValidation(newPost);
+    if (resultMsg.length != 0) {
+        return res.json({ success: false, msg: resultMsg.valueOf() })
+    }
 
+    //save  new post to database and add posts id to user posts column
     newPost
         .save()
         .then(newPost => {
@@ -63,5 +68,29 @@ postRouter.route("/posts/delete/:id").get((req, res) => {
         else res.json({ success: true, msg: "Remove successfully" });
     });
 });
+
+/** post validation */
+function postValidation(post) {
+    const message = [];
+
+    // check if any fileds is empty
+    if (post.title == undefined || post.street == undefined || post.suburb == undefined || post.city == undefined ||
+        post.state == undefined || post.postCode == undefined || post.roomType == undefined || post.contactName == undefined ||
+        post.phone == undefined || post.rent == undefined || post.description == undefined) {
+        message.push("* Please fill in all fields!! ");
+        return message;
+    }
+    //check title length
+    const titleLength = post.title.length;
+    if (titleLength < 10 || titleLength > 100) {
+        message.push("* Title length should between 10 characters and 100 characters!")
+    }
+    //check description length
+    const descLength = post.description.length;
+    if (descLength > 1000) {
+        message.push("* The maximum length of description is 1000 ")
+    }
+    return message;
+}
 
 module.exports = postRouter;
