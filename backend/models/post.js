@@ -14,7 +14,7 @@ let Post = new Schema({
   phone: String,
   rent: Number,
   byUser: String,
-  postDate: Date,
+  postDate: String,
   description: String
 });
 

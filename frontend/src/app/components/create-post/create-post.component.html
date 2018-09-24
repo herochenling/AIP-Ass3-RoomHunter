@@ -1,17 +1,17 @@
 <h2 class="page-hearder text-primary">List My Room</h2>
-<form>
+<form (submit)="onCreatedSubmit()">
   <br>
   <h3 class="text-muted">Details</h3>
   <hr class="my-2">
 
   <div class="form-group">
     <label for="">Title</label>
-    <input type="text" class="form-control" id="title" placeholder="Enter title">
+    <input [(ngModel)]="title" type="text" class="form-control" name="title" placeholder="Enter title">
   </div>
 
   <div class="form-group">
     <label for="roomType">Room Type</label>
-    <select class="form-control" id="roomType">
+    <select [(ngModel)]="roomType" class="form-control" name="roomType">
       <option>Private Room</option>
       <option>Room Shared with Others</option>
     </select>
@@ -24,7 +24,7 @@
         <div class="input-group-prepend">
           <span class="input-group-text">$</span>
         </div>
-        <input type="text" class="form-control">
+        <input [(ngModel)]="rent" name="rent" type="text" class="form-control">
         <div class="input-group-append">
           <span class="input-group-text">Per Week</span>
         </div>
@@ -34,29 +34,29 @@
 
   <div class="form-group">
     <label for="">Street</label>
-    <input type="text" class="form-control" id="street" placeholder="Enter street">
+    <input [(ngModel)]="street" type="text" class="form-control" name="street" placeholder="Enter street">
   </div>
 
   <div class="form-group">
     <div class="col-xs-2">
       <label for="">Suburb</label>
-      <input type="text" class="form-control" id="suburb" placeholder="Enter suburb">
+      <input [(ngModel)]="suburb" type="text" class="form-control" name="suburb" placeholder="Enter suburb">
     </div>
   </div>
 
   <div class="form-group">
     <label for="state">State</label>
-    <input type="text" class="form-control" id="State" placeholder="Enter State">
+    <input [(ngModel)]="state" type="text" class="form-control" name="State" placeholder="Enter State">
   </div>
 
   <div class="form-group">
     <label for="postcode">Postcode</label>
-    <input type="text" class="form-control" id="postcode" placeholder="Enter postcode">
+    <input [(ngModel)]="postCode" type="text" class="form-control" name="postcode" placeholder="Enter postcode">
   </div>
 
   <div class="form-group">
     <label for="description">Description</label>
-    <textarea class="form-control" id="exampleTextarea" rows="5"></textarea>
+    <textarea [(ngModel)]="description" class="form-control" name="description" rows="5"></textarea>
   </div>
 
   <br>
@@ -65,13 +65,13 @@
 
   <div class="form-group">
     <label for="name">Contact Name</label>
-    <input type="text" class="form-control" id="name" placeholder="">
+    <input [(ngModel)]="contactName" type="text" class="form-control" name="contactName" placeholder="">
   </div>
 
   <div class="form-group">
     <label for="Phone">Phone</label>
-    <input type="phone" class="form-control" id="phone" placeholder="Enter phone">
+    <input [(ngModel)]="phone" type="phone" class="form-control" name="phone" placeholder="Enter phone">
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
-  <button type="button" class="btn btn-secondary">Cancel</button>
+  <button type="button" (click)="onCreatedCancel()" class="btn btn-secondary">Cancel</button>
 </form>
