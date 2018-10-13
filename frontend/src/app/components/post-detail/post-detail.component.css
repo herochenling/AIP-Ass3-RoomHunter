@@ -1,0 +1,138 @@
+/*  */
+.comm-basic-mod{
+    width: 100%;
+	height: 450px;
+	margin-top: 20px;
+	overflow: hidden;
+	zoom:1;
+}
+.comm-basic-mod i{
+	font-style: normal;
+}
+.carousel-box,
+.basic-infos-box{
+	float: left;
+}
+.carousel-box{
+	width: 600px;
+	margin-right: 50px;
+}
+.carousel-box .item{
+    position: relative;
+    text-align: center;
+    vertical-align: top;
+}
+.carousel-box .switch-box{
+    position: relative;
+    width: 600px;
+}
+.carousel-box img{
+	
+}
+.carousel-box .clip{
+    width: 600px;
+    height: 450px;
+    overflow: hidden;
+    zoom:1;
+}
+.carousel-box .con{
+    position: relative;
+}
+.carousel-box  .item{
+    width: 600px;
+    height: 450px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    cursor: pointer;
+    display: none;
+    background: #f1f1f1;
+}
+
+/*basic information*/
+.basic-infos-box{
+	position: relative;
+	width: 580px;
+	height: 100%;
+}
+.basic-infos-box .price{
+    height: 68px;
+    padding-top:12px;
+    border-bottom:1px solid #e6e6e6;
+    white-space: nowrap;
+}
+.basic-infos-box .price .side-tit{
+	padding:0 3px 0 10px;
+    color: #999;
+    font-size: 14px;
+}
+.basic-infos-box .price .average{
+    font-size: 38px;
+    color: #E54B00;
+}
+.basic-infos-box .price .no-data{
+    color: #999;
+}
+.basic-infos-box .price .unit{
+	font-size: 14px;
+}
+.basic-infos-box .price .up{
+	color:#eb5f00;
+}
+.basic-infos-box .price .arrow{
+	padding-right: 2px;
+}
+.basic-infos-box .price .down{
+	color:#008000;
+}
+.basic-infos-box .price .level{
+	color:#999;
+}
+.basic-parms-mod{
+   margin-top: 17px;
+   overflow: hidden;
+   zoom:1;
+}
+.basic-parms-mod dt,
+.basic-parms-mod dd{
+	float: left;
+	height: 38px;
+	line-height: 38px;
+	font-size: 14px;
+}
+.basic-parms-mod dt{
+	width: 75px;
+	color: #999;
+}
+.basic-parms-mod .other-dt{
+    width: 80px;
+}
+.basic-parms-mod dd{
+	width: 200px;
+	white-space: nowrap;
+}
+.basic-parms-mod .other-dd{
+    width: 166px;
+}
+.basic-parms-mod .dd-column{
+   width: 420px;
+}
+
+.houses-sets-mod{
+    position: absolute;
+    bottom: 0;
+    left:0;
+    height: 70px;
+    line-height: 70px;
+    width: 478px;
+    background: #f6f6f6;
+    padding-left: 52px;
+}
+
+dl {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
