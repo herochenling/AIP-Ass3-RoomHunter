@@ -1,52 +1,31 @@
 <form class="form-inline my-2 my-lg-0 p-2">
-  <input class="form-control mr-sm-2" type="text" placeholder="Search">
-  <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
-</form>
 
-<div class="d-flex justify-content-start p-1 ">
-  <div>
-    <label>Area:&nbsp;&nbsp;&nbsp;</label>
-  </div>
-  <div class="custom-control custom-checkbox ">
-    <input type="checkbox" class="custom-control-input" id="sydney">
-    <label class="custom-control-label" for="sydney">Sydney&nbsp;&nbsp;&nbsp;</label>
-  </div>
-  <div class="custom-control custom-checkbox ">
-    <input type="checkbox" class="custom-control-input" id="melbourne">
-    <label class="custom-control-label" for="melbourne">Melbourne&nbsp;&nbsp;&nbsp;</label>
-  </div>
-  <div class="custom-control custom-checkbox ">
-    <input type="checkbox" class="custom-control-input" id="brisbane">
-    <label class="custom-control-label" for="brisbane">Brisbane&nbsp;&nbsp;&nbsp;</label>
-  </div>
-  <div class="custom-control custom-checkbox ">
-    <input type="checkbox" class="custom-control-input" id="goldCoast">
-    <label class="custom-control-label" for="goldCoast">Gold Coast&nbsp;&nbsp;&nbsp;</label>
-  </div>
-</div>
+  <input type="text" class="form-control mr-sm-2" name="address" [(ngModel)]="area" name="text" placeholder="Search">
+  <button class="btn btn-primary my-2 my-sm-0"  (click)="seachPostByArea()"  type="submit">Search</button>
+</form>
 
 <div class="d-flex justify-content-start p-1 ">
   <div>
     <label>Price:&nbsp;&nbsp;&nbsp;</label>
   </div>
   <div class="custom-control custom-checkbox ">
-    <input type="checkbox" class="custom-control-input" id="less100">
+    <input type="checkbox" class="custom-control-input" id="less100" name="0" (change)="searchPostByPrice($event.target.name, $event.target.checked)">
     <label class="custom-control-label" for="less100">&lt; $100&nbsp;&nbsp;&nbsp;</label>
   </div>
   <div class="custom-control custom-checkbox ">
-    <input type="checkbox" class="custom-control-input" id="price-100-200">
+    <input type="checkbox" class="custom-control-input" id="price-100-200" name="1" (change)="searchPostByPrice($event.target.name, $event.target.checked)">
     <label class="custom-control-label" for="price-100-200">$100 - $200&nbsp;&nbsp;&nbsp;</label>
   </div>
   <div class="custom-control custom-checkbox ">
-    <input type="checkbox" class="custom-control-input" id="price-200-300">
+    <input type="checkbox" class="custom-control-input" id="price-200-300" name="2" (change)="searchPostByPrice($event.target.name, $event.target.checked)">
     <label class="custom-control-label" for="price-200-300">$200 - $300&nbsp;&nbsp;&nbsp;</label>
   </div>
   <div class="custom-control custom-checkbox ">
-    <input type="checkbox" class="custom-control-input" id="price-300-400">
+    <input type="checkbox" class="custom-control-input" id="price-300-400"  name="3" (change)="searchPostByPrice($event.target.name, $event.target.checked)">
     <label class="custom-control-label" for="price-300-400">$300 - $400&nbsp;&nbsp;&nbsp;</label>
   </div>
   <div class="custom-control custom-checkbox ">
-    <input type="checkbox" class="custom-control-input" id="greater400">
+    <input type="checkbox" class="custom-control-input" id="greater400" name="4" (change)="searchPostByPrice($event.target.name, $event.target.checked)">
     <label class="custom-control-label" for="greater400">&gt; 400&nbsp;&nbsp;&nbsp;</label>
   </div>
 </div>

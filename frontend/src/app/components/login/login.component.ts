@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { FlashMessageService } from '../../services/flash-message.service';
-
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -10,19 +10,31 @@ import { FlashMessageService } from '../../services/flash-message.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  username: String;
-  password: String;
-
+  loginForm: FormGroup;
+  submitted = false;
   constructor(private authService: AuthService,
     private router: Router,
-    private flashMessageService: FlashMessageService) { }
+    private formBuilder: FormBuilder,
+    private flashMessageService: FlashMessageService) { 
+      this.loginForm = this.formBuilder.group({
+        username: ['', Validators.required],
+        password: ['', Validators.required],
+      });
+  }
 
+  // convenience getter for easy access to form fields
+  get f() { return this.loginForm.controls; }
+  
   onLoginSubmit() {
-    const user = {
-      username: this.username,
-      password: this.password
+    this.submitted = true;
+    if(this.loginForm.invalid) {
+      return;
     }
-
+    const user = {
+      username: this.loginForm.controls.username.value,
+      password: this.loginForm.controls.password.value
+    }
+    //check user name and password valid
     this.authService.authenticateUser(user).subscribe(data => {
       if ((data as any).success) {
         this.authService.storeUserData((data as any).token, (data as any).user);
@@ -36,6 +48,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+ 
   }
 
 }
