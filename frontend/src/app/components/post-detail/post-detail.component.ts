@@ -21,7 +21,8 @@ export class PostDetailComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get("id"); //get post id from url
     this.postService.getPostById(id).subscribe((res: Post) => {
       this.post = res;
-    });
+      this.post.houseImage = this.post.houseImage.replace(/\"/g, "");
+    })
   }
 
   ngOnInit() {

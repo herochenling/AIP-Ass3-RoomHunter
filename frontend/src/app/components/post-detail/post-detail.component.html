@@ -1,13 +1,39 @@
 <!-- Show the details of selected post | date:'MM/dd/yyyy, h:mm a' -->
-<div *ngIf="post">
+<div class="comm-basic-mod" *ngIf="post">
   <h1>{{post.title | uppercase}} </h1>
-  <h2>Post by: {{post.byUser}} {{post.postDate }}</h2>
-  <h4>Room type: {{post.roomType}}</h4>
-  <h4>Rent: ${{post.rent}} / week</h4>
-  <h4>Address: {{post.street}} {{post.suburb}} {{post.city}} {{post.state}} {{post.postCode}}</h4>
-  <h4>Contact: {{post.contactName}} {{post.phone}}</h4>
-  <br>
-  <p>Description: </p>
-  <p>{{post.description}}</p>
-  <button (click)="goBack()">go back</button>
+  <div id="j-switch-basic" class="carousel-box">
+      <div class="switch-box">
+          <div class="clip">
+              <div class="con" style="position: relative;">
+                  <div class="item" style="display: block;">
+                      <img height="450" alt="" src="http://localhost:4000{{post.houseImage}}">
+                  </div>
+
+              </div>
+          </div>
+          <div class="nav-mask-layer"></div>
+          <a class="arrow arrow-pre" href="javascript:void(0)"><i class="iconfont"></i></a>
+          <a class="arrow arrow-next" href="javascript:void(0)"><i class="iconfont"></i></a>
+      </div>
+  </div>
+  <div class="basic-infos-box" id="basic-infos-box">
+      <div class="price">
+          <label class="side-tit">Rent</label><span class="average">${{post.rent}}<em class="unit"></em></span>
+      </div>
+
+      <dl class="basic-parms-mod">
+          <dt>Post by：</dt>
+          <dd>{{post.byUser}} {{post.postDate }}</dd>
+          <dt class="other-dt">RoomType：</dt>
+          <dd class="other-dd">{{post.roomType}}</dd>
+          <dt>Address：</dt>
+          <dd>{{post.suburb}}</dd>
+          <dt class="other-dt">Contact：</dt>
+          <dd class="other-dd"> {{post.contactName}} {{post.phone}}</dd>
+          <dt>Description：</dt>
+      </dl>
+      <p class="other-dd">{{post.description}}</p>
+      <button (click)="goBack()">go back</button>
+  </div>
+
 </div>

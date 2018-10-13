@@ -5,3 +5,40 @@
         <li class="list-group-item">Email: {{user.email}}</li>
     </ul>
 </div>
+
+<div class="box-body">
+<h2 class="page-hearder text-primary">Published Home</h2>
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Room Type</th>
+          <th>Price(Per Week)</th>
+          <th>address</th>
+          <th>contactName</th>
+          <th>phone</th>
+          <th>createTime</th>
+          <th>Operation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of homeList">
+          <td>{{item.title}}</td>
+          <td>{{item.description}}</td>
+          <td>{{item.roomType}}</td>
+          <td>${{item.rent}}</td>
+		  <td>{{item.city}}</td>
+		  <td>{{item.contactName}}</td>
+		  <td>{{item.phone}}</td>
+          <td>{{item.postDate}}</td>
+          <td>
+            <button (click)="showDetail(item)" class="btn btn-default">Detail</button>
+            <button (click)="delHouse(item)" class="btn btn-danger">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+
+    </table>
+ 
+  </div>
