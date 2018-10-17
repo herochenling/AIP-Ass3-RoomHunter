@@ -14,4 +14,5 @@ export class Post {
   byUser: String;
   postDate: String;
   description: String;
+  houseImage: String;
 }
