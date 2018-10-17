@@ -4,34 +4,32 @@
   <app-filter></app-filter>
 </div>
 <div id="content">
-<div class="sale-left">
-   <div class="tab-wrap">
-     <h1 *ngIf="!bValid()"  class="houselist-mod houselist-mod-new">Search Result Empty!</h1>
-     <ul id="houselist-mod-new" class="houselist-mod houselist-mod-new" *ngFor="let house of posts">
- 		<li class="list-item" data-from="">
-        	<div class="item-img">
-        	
-        	 <img src="http://127.0.0.1:4000{{house.houseImage}}" width="180" height="135">
-        	
-            </div>
-            <div class="house-details">
-           	 <div class="house-title">
-             	<a data-from="" data-company="" title={{house.title}} href="/posts/{{house._id}}" target="_blank" class="houseListTitle">
+  <div class="sale-left">
+    <div class="tab-wrap">
+      <h1 *ngIf="!bValid()" class="houselist-mod houselist-mod-new">Search Result Empty!</h1>
+      <ul id="houselist-mod-new" class="houselist-mod houselist-mod-new" *ngFor="let house of posts">
+        <li class="list-item" data-from="">
+          <div class="item-img">
+            <img src="http://127.0.0.1:4000{{house.houseImage}}" width="180" height="135">
+          </div>
+          <div class="house-details">
+            <div class="house-title">
+              <a data-from="" data-company="" title={{house.title}} href="/posts/{{house._id}}" target="_blank" class="houseListTitle">
                 {{house.title}} </a>
-      		 </div>
-			<div class="details-item">
-        		<span class="comm-address" title={{house.description}}>{{house.description}} </span>
-			</div>
-            <div class="details-item">
-                <span>{{house.city}}</span><span class="brokername"><i class="iconfont"></i>{{house.contactName}}</span>            
             </div>
-        	</div>
-        <div class="pro-price">
-            <span class="price-det"><strong>{{house.rent}}</strong>dollar</span><span class="unit-price">{{house.postDate}}</span>        
-        </div>
-      </li>
-    </ul>
-    <div id="IFX_p937" class="ifx-wrap " style=""></div>
-    <div style="display: none"></div>
-   </div>
-</div>
+            <div class="details-item">
+              <span class="comm-address" title={{house.description}}>{{house.description}} </span>
+            </div>
+            <div class="details-item">
+              <span>{{house.city}}</span><span class="brokername"><i class="iconfont"></i>{{house.contactName}}</span>
+            </div>
+          </div>
+          <div class="pro-price">
+            <span class="price-det"><strong>{{house.rent}}</strong>dollar</span><span class="unit-price">{{house.postDate}}</span>
+          </div>
+        </li>
+      </ul>
+      <div id="IFX_p937" class="ifx-wrap"></div>
+      <div style="display: none"></div>
+    </div>
+  </div>

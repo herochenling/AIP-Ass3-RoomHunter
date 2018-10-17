@@ -2,10 +2,16 @@ import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
+
+/**
+ *  The class used for delivering filter result to posts-component
+ */
 export class MessageService {
     private subject = new Subject<any>();
 
-    //send message to subscriber
+    /** 
+     * send message to subscriber (posts component)
+     */
     sendMessage(message: Object) {
         this.subject.next({ text: message });
     }
@@ -14,7 +20,9 @@ export class MessageService {
         this.subject.next();
     }
 
-    //get message
+    /** 
+     * get message
+     */
     getMessage(): Observable<any> {
         return this.subject.asObservable();
     }

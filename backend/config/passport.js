@@ -18,11 +18,10 @@ export default function readToken(passport) {
                 if (err) {
                     return done(err, false); //done is a passport error first callback
                 }
-                // if there is a user, return user
+                // if there is a user found, return user, otherwise return false
                 if (user) {
                     return done(null, user);
                 } else {
-                    // if there is no this user, return false
                     return done(null, false);
                 }
             });

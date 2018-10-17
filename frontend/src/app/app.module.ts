@@ -18,7 +18,6 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProfileComponent } from './components/profile/profile.component';
 
 import { PostService } from './services/post.service';
-import { ValidateService } from './services/validate.service';
 import { AuthService } from './services/auth.service';
 import { FlashMessageService } from './services/flash-message.service';
 import { MessageService } from './services/message.service';
@@ -51,7 +50,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     ],
     providers: [
         PostService,
-        ValidateService,
         AuthService,
         FlashMessageService,
         AuthGuard,
@@ -59,4 +57,4 @@ import { ReactiveFormsModule } from '@angular/forms';
     ],
     bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

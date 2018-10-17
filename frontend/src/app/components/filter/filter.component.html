@@ -1,7 +1,7 @@
 <form class="form-inline my-2 my-lg-0 p-2">
 
   <input type="text" class="form-control mr-sm-2" name="address" [(ngModel)]="area" name="text" placeholder="Search">
-  <button class="btn btn-primary my-2 my-sm-0"  (click)="seachPostByArea()"  type="submit">Search</button>
+  <button class="btn btn-primary my-2 my-sm-0" (click)="seachPostByArea()" type="submit">Search</button>
 </form>
 
 <div class="d-flex justify-content-start p-1 ">
@@ -21,7 +21,7 @@
     <label class="custom-control-label" for="price-200-300">$200 - $300&nbsp;&nbsp;&nbsp;</label>
   </div>
   <div class="custom-control custom-checkbox ">
-    <input type="checkbox" class="custom-control-input" id="price-300-400"  name="3" (change)="searchPostByPrice($event.target.name, $event.target.checked)">
+    <input type="checkbox" class="custom-control-input" id="price-300-400" name="3" (change)="searchPostByPrice($event.target.name, $event.target.checked)">
     <label class="custom-control-label" for="price-300-400">$300 - $400&nbsp;&nbsp;&nbsp;</label>
   </div>
   <div class="custom-control custom-checkbox ">

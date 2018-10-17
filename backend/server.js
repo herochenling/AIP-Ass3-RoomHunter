@@ -7,6 +7,7 @@ import userRouter from './routes/users-route';
 import postRouter from './routes/posts-route';
 import passport from 'passport';
 import readToken from './config/passport';
+import path from 'path';
 
 const app = express();
 
@@ -16,7 +17,7 @@ app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 app.use(passport.initialize());
 app.use(passport.session());
-
+app.use(express.static(path.join(__dirname, 'public')));
 readToken(passport);
 
 // database configuration
@@ -30,8 +31,8 @@ connection.once('open', () => {
     console.log('MongoDB database connection established successfully');
 });
 
-//route
-app.use('/', postRouter);
+//routes
+app.use('/posts', postRouter);
 app.use('/users', userRouter);
 
 // check if server is running

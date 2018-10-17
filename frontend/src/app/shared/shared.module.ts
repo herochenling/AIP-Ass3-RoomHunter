@@ -10,15 +10,15 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { GooglePlacesDirective } from './google_places/google-places.directive';
 
 @NgModule({
-  declarations: [GooglePlacesDirective],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    BrowserAnimationsModule,
-    ReactiveFormsModule,
-    HttpClientModule
-  ],
-  providers: [],
-  exports: [GooglePlacesDirective]
+    declarations: [GooglePlacesDirective],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        BrowserAnimationsModule,
+        ReactiveFormsModule,
+        HttpClientModule
+    ],
+    providers: [],
+    exports: [GooglePlacesDirective]
 })
-export class SharedModule {}
+export class SharedModule { }

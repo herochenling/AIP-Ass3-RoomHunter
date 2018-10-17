@@ -16,7 +16,7 @@ export class AuthService {
         })
     };
 
-    constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient) { }
 
     /**
      * register user in the backend and send back response message
@@ -41,8 +41,8 @@ export class AuthService {
     }
 
     /*
-   * check user auth
-   */
+     * check user auth
+     */
     checkAuth() {
         this.loadUser();
         if (this.user != null) {
