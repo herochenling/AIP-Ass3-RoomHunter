@@ -1,41 +1,63 @@
 
 ---
 # RoomHunter
+[toc]
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.3.
+## Intro
+Our project is a website that aims is to provide a platform for people who have a spare room in their house to post the rental advertisements. 
 
-## MongoDB Server
+ If a user is not logged in, he can only view posts created by other people. In order to list a room on our website, one must have to create an account and log in. 
+ 
+ ## Project Structure
+Our project uses MEAN stack (MongoDB, Express, Angular, Node)
 
-Run `mongod` to start mongoDb server.
+### Frontend 
+#### Components:
+- navbar - Used to display navigation bar in the top of the webpage
+- filter - Used to filter the posts, either by rent or area
+- login - Handle login event
+- register - Handle register event
+- posts - Display a list of posts
+- post-detail - Show the detail of a selected post
+- create-post - Add a new post
+- profile - Display user info and posts created by them
+#### services:
+- auth - User authentication checking and handle events like login and register 
+- delivery - Deliver filter and search result to posts component
+- post - Load posts from server
+- upload - upload image to the server
+- flash-message - Show error or success message form both server and frontend
 
-## Backend Server
 
-Run `npm run dev` for backend Express server. 
+### Backend 
+#### Models:
+- user - Include username, email, password and the posts created by this user.
+- posts - Include all of the post information like title, post date, rent, room info, contact info and etc.
 
-## Frontend server
+#### Routes:
+- users-routes - All routes related to the user, such as `/register`, `/login`, `/authenticate` and so on
+- posts-routes - All routes related to the posts, such as `/add`, `/delete/:id`, `/upload` and so on
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+---
+# Run the Project
 
-## Code scaffolding
+## Requirements
+- Have MongoDB, Express, Angular, Node installed
+- Create a local database called `roomhunter` with collection `users` and `posts`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Run
+### 1. MongoDB Server
+Use `mongod` to start mongoDb server.
 
-## Build
+### 2. Backend 
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Use `npm run dev` for backend Express server. The server will automatically reload if you change any of the source files. The address for backend is `http://localhost:4000/`
 
-## Running unit tests
+### 3. Frontend
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Run `ng build` to build the project. The build artifacts will be stored in the `public/` directory. 
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-
+Use `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ---
 
@@ -51,7 +73,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Comments
 
-- Use `/** */` block for function comments.
+- Use `/** */` block for function and class comments.
 - Use `//` for rest of code (i.e. for codes within a function or outside a function).
 
 ## Style
@@ -62,11 +84,11 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
    `x => x + x`  
   `(x,y) => x + y`  
   `<T>(x: T, y: T) => x === y`
-- Always surround loop and conditional bodies with curly braces.
+- Surround loop and conditional bodies with curly braces. If contional body only have single statement and it goes in one line, then it ok to without braces, eg. `if (true) return x;` is accepted;
 - Open curly braces always go on the same line as whatever necessitates them.
 - Parenthesized constructs should have no surrounding whitespace.
 - A single space follows commas, colons, and semicolons in those constructs. For example:  
    `for (var i = 0, n = str.length; i < 10; i++){ }`  
   `function f(x: number, y: string): void { }`
 - Use a single declaration per variable statement (i.e. `use var x = 1; var y = 2;` over `var x = 1, y = 2;`).
-- `else` goes on a separate line from the closing curly brace.
+- `else` goes on the same line from the closing curly brace.

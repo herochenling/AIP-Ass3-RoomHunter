@@ -20,7 +20,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { PostService } from './services/post.service';
 import { AuthService } from './services/auth.service';
 import { FlashMessageService } from './services/flash-message.service';
-import { MessageService } from './services/message.service';
+import { DeliveryService } from './services/delivery.service';
 
 import { AuthGuard } from './guard/auth.guard';
 import { SharedModule } from './shared/shared.module';
@@ -53,7 +53,7 @@ import { ReactiveFormsModule } from '@angular/forms';
         AuthService,
         FlashMessageService,
         AuthGuard,
-        MessageService
+        DeliveryService
     ],
     bootstrap: [AppComponent]
 })

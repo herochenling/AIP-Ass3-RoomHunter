@@ -6,7 +6,7 @@ import { Observable, Subject } from 'rxjs';
 /**
  *  The class used for delivering filter result to posts-component
  */
-export class MessageService {
+export class DeliveryService {
     private subject = new Subject<any>();
 
     /** 

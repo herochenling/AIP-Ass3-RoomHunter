@@ -5,6 +5,10 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 @Injectable({
     providedIn: 'root'
 })
+
+/**
+ * User authentication
+ */
 export class AuthService {
     authToken: any;
     user: any;
@@ -22,22 +26,14 @@ export class AuthService {
      * register user in the backend and send back response message
      */
     registerUser(user) {
-        return this.http.post(
-            `${this.url}/users/register`,
-            user,
-            this.httpOptions
-        );
+        return this.http.post(`${this.url}/users/register`, user, this.httpOptions);
     }
 
     /**
      * Authenticate user: if success, return user info and tokens otherwise return false
      */
     authenticateUser(user) {
-        return this.http.post(
-            `${this.url}/users/authenticate`,
-            user,
-            this.httpOptions
-        );
+        return this.http.post(`${this.url}/users/authenticate`, user, this.httpOptions);
     }
 
     /*
@@ -57,10 +53,7 @@ export class AuthService {
      */
     getProfile() {
         this.loadToken();
-        let headers = new HttpHeaders({
-            Authorization: this.authToken,
-            'Content-Type': 'application/json'
-        });
+        let headers = new HttpHeaders({ Authorization: this.authToken, 'Content-Type': 'application/json' });
         return this.http.get(`${this.url}/users/profile`, { headers: headers });
     }
 

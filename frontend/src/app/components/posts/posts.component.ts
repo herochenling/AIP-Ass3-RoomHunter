@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy, ViewEncapsulation } from '@angular/core';
 import { Post } from '../../post';
 import { PostService } from '../../services/post.service';
-import { MessageService } from '../../services/message.service';
+import { DeliveryService } from '../../services/delivery.service';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -19,9 +19,9 @@ export class PostsComponent implements OnInit, OnDestroy {
     posts_: Post[];
     subscription: Subscription; //the filter results from the message service
 
-    constructor(private postService: PostService, private messageService: MessageService) {
+    constructor(private postService: PostService, private DeliveryService: DeliveryService) {
         //subscribe to message service, search result in filter component will send to this component
-        this.subscription = this.messageService.getMessage().subscribe(message => {
+        this.subscription = this.DeliveryService.getMessage().subscribe(message => {
             let msg = (message as any).text;
             this.posts = (msg as any).list;
             this.trimPost();

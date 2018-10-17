@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation, NgZone } from '@angular/core';
 import { Post } from '../../post';
 import { PostService } from '../../services/post.service';
-import { MessageService } from '../../services/message.service';
+import { DeliveryService } from '../../services/delivery.service';
 @Component({
     selector: 'app-filter',
     templateUrl: './filter.component.html',
@@ -16,7 +16,7 @@ export class FilterComponent implements OnInit {
     area: String;
     prices: String[];
 
-    constructor(private postService: PostService, private messageService: MessageService) { }
+    constructor(private postService: PostService, private DeliveryService: DeliveryService) { }
 
     ngOnInit() {
         this.area = '';
@@ -49,7 +49,7 @@ export class FilterComponent implements OnInit {
         //call searchPostByPrice and uses the list contains the indexes of price options
         // and send search result to posts components
         this.postService.searchPostByPrice(this.prices).subscribe(data => {
-            this.messageService.sendMessage(data);
+            this.DeliveryService.sendMessage(data);
         });
     }
 
@@ -58,7 +58,7 @@ export class FilterComponent implements OnInit {
      */
     seachPostByArea() {
         this.postService.searchPostByArea(this.area).subscribe(data => {
-            this.messageService.sendMessage(data);
+            this.DeliveryService.sendMessage(data);
         });
     }
 }
